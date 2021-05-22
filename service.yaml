@@ -7,7 +7,7 @@ metadata:
 spec:
   selector:
     run: ruby-deployment
-  type: LoadBalancer
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80
