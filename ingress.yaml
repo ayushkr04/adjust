@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-ruby
+spec:
+  rules:
+  -  http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: ruby-svc-1
+            port:
+              number: 80
+
+      paths:
+      - pathType: Prefix
+        path: "/healthcheck"
+        backend:
+          service:
+            name: ruby-svc-2
+            port:
+              number: 80
