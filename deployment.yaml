@@ -12,13 +12,17 @@ spec:
       labels:
         run: ruby-deployment
     spec:
+      securityContext:
+        runAsUser: 1000
       containers:
       - name: ruby-container
         image: ayush0404/ruby:v2
         ports:
         - containerPort: 80
+        securityContext:
+          allowPrivilegeEscalation: false
         resources:
           limits:
             cpu: 500m
           requests:
-            cpu: 500m        
+            cpu: 500m
